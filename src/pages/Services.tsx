@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { services, ServiceCategory } from '../data/services'
 import { Section } from '../components/layout/Section'
 import { GlowCard } from '../components/ui/GlowCard'
@@ -47,36 +48,44 @@ export const Services = () => {
         </RevealOnScroll>
 
         {/* Active Category Content */}
-        <RevealOnScroll delay={0.3}>
-          <div className="mb-8">
-            <h2 className="text-2xl font-semibold mb-2">{activeCategoryData.title}</h2>
-            <p className="text-zinc-400 max-w-3xl">{activeCategoryData.subtitle}</p>
-          </div>
-        </RevealOnScroll>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={`category-content-${activeCategory}`}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold mb-2">{activeCategoryData.title}</h2>
+              <p className="text-zinc-400 max-w-3xl">{activeCategoryData.subtitle}</p>
+            </div>
 
-        {/* Services Grid */}
-        <StaggerList staggerDelay={0.05}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {activeCategoryData.items.map((item) => (
-              <StaggerItem key={item.id}>
-                <GlowCard
-                  glowColor={activeCategory === 'architectural' ? 'amber' : activeCategory === 'structural' ? 'cyan' : 'amber'}
-                  className="h-full"
-                >
-                  <div className="flex items-start justify-between mb-2">
-                    <Badge variant={activeCategory === 'structural' ? 'cyan' : 'amber'}>
-                      {activeCategoryData.title.split(' ')[0]}
-                    </Badge>
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                  {item.shortDesc && (
-                    <p className="text-sm text-zinc-400">{item.shortDesc}</p>
-                  )}
-                </GlowCard>
-              </StaggerItem>
-            ))}
-          </div>
-        </StaggerList>
+            {/* Services Grid */}
+            <StaggerList key={`category-grid-${activeCategory}`} staggerDelay={0.05}>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {activeCategoryData.items.map((item) => (
+                  <StaggerItem key={item.id}>
+                    <GlowCard
+                      glowColor={activeCategory === 'architectural' ? 'amber' : activeCategory === 'structural' ? 'cyan' : 'amber'}
+                      className="h-full"
+                    >
+                      <div className="flex items-start justify-between mb-2">
+                        <Badge variant={activeCategory === 'structural' ? 'cyan' : 'amber'}>
+                          {activeCategoryData.title.split(' ')[0]}
+                        </Badge>
+                      </div>
+                      <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                      {item.shortDesc && (
+                        <p className="text-sm text-zinc-400">{item.shortDesc}</p>
+                      )}
+                    </GlowCard>
+                  </StaggerItem>
+                ))}
+              </div>
+            </StaggerList>
+          </motion.div>
+        </AnimatePresence>
 
         {/* All Services Summary */}
         <RevealOnScroll delay={0.4}>
