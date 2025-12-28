@@ -1,0 +1,63 @@
+import { convertGoogleDriveUrls } from '../utils/googleDrive'
+
+export interface ArchitectureTeamMember {
+  id: string
+  name: string
+  title: string
+  image?: string
+  education: string
+  institution: string
+  license: string
+  projectImages: string[]
+  bio?: string
+  email?: string
+  linkedin?: string
+}
+
+// Google Drive URLs from models-list.txt line 7
+const rawProjectUrls = [
+  'https://drive.google.com/file/d/1QkbJnbnLQSHEVTSq1FtYKjDtTs_aR-og/view?usp=drive_link',
+  'https://drive.google.com/file/d/1MY4SquFYCrawUP7zCM7CSpmbnhJpBnqB/view?usp=drive_link',
+  'https://drive.google.com/file/d/18xwKh3AG-h_YIZjSdW1Y4KyfuF74wed5/view?usp=drive_link',
+  'https://drive.google.com/file/d/1BLdk6r1t4wPNlixIME_rwjgBQNJ0870z/view?usp=drive_link',
+  'https://drive.google.com/file/d/1odU5I6__FRcHJ98fbOUKBNCy9L_TpECo/view?usp=drive_link',
+  'https://drive.google.com/file/d/1W72V_dDh1A1Bw7qU_B8LPdsIx_2XPwKp/view?usp=drive_link',
+  'https://drive.google.com/file/d/1jizYsCbucag7ZzOVd2NsUp5d7Mwrv10v/view?usp=drive_link',
+  'https://drive.google.com/file/d/1S8ArMdtwlaO36pD4UjdMG4DPl71qNTH6/view?usp=drive_link',
+  'https://drive.google.com/file/d/1lLvG3hHDDg3AVnnN2eSGyl05JOviH5Ff/view?usp=drive_link',
+  'https://drive.google.com/file/d/1eNZKXSRTitCouwThUQvexypJR_N7it3o/view?usp=drive_link',
+  'https://drive.google.com/file/d/1V3EAiygcpmrUL9hjaNMI68ftqvMN6CyE/view?usp=drive_link',
+  'https://drive.google.com/file/d/1wFBfx5lbmUoW6cZbxNDgsFG49YQWAGhd/view?usp=drive_link',
+  'https://drive.google.com/file/d/1z1qb9pUWNPV8bEp47OszigV1hoCMbRyG/view?usp=drive_link',
+  'https://drive.google.com/file/d/1wv6U2g-WCkwS40W9NaubLdclX5Qwiz07/view?usp=drive_link',
+  'https://drive.google.com/file/d/1UE4yjTK2h6x5hJW5C7ScA-d90T-z0pwT/view?usp=drive_link',
+  'https://drive.google.com/file/d/1oaCw1sAVt6JN20KYNikEdVd5uvPCptKU/view?usp=drive_link',
+  'https://drive.google.com/file/d/1JfSZzAD4n_MIniGazNUZaqo9EjenuDiY/view?usp=drive_link',
+  'https://drive.google.com/file/d/1js_iZt_ZihcA_T_cidd1zzl3SH7oSfX8/view?usp=drive_link',
+  'https://drive.google.com/file/d/1CtTyFiE7sp0UYB5898yejQjhwGln95Ot/view?usp=drive_link',
+  'https://drive.google.com/file/d/1c269oJHTQkhayetkiV1B4r05wGU8cj23/view?usp=drive_link',
+  'https://drive.google.com/file/d/1PPftRlqaBXJ46pM8IojZ_vM3PUfGUbYj/view?usp=drive_link',
+  'https://drive.google.com/file/d/1QWJY_W-49tmNJk0yvVGUrjigXsnpw7G1/view?usp=drive_link',
+  'https://drive.google.com/file/d/1cyL_4yYcJ447bTYWJc3WiWe_dL3_w-7E/view?usp=drive_link',
+  'https://drive.google.com/file/d/1CGjbk9OJ73id72TvY3KKyLXat1S4YltI/view?usp=drive_link',
+  'https://drive.google.com/file/d/1tEJbRUsrEZjdys6meUJx1s8v1rVIpr86/view?usp=drive_link',
+  'https://drive.google.com/file/d/1nQMCDFuF0hFjnOaH354INTDvuiunY26f/view?usp=drive_link',
+  'https://drive.google.com/file/d/141Wr0abRRMggLlDvUW0hJ0OnViMmcdyw/view?usp=drive_link',
+  'https://drive.google.com/file/d/1FLVq-ZaMswGPgCR3I3ZBLcORVAgmRCAK/view?usp=drive_link',
+  'https://drive.google.com/file/d/1LmVID31cm7bJQxQkOw7UrMSY3moGBNqb/view?usp=drive_link',
+]
+
+export const architectureTeam: ArchitectureTeamMember[] = [
+  {
+    id: 'ragini-konwar',
+    name: 'Ar. Ragini Konwar',
+    title: 'Architect',
+    education: 'Bachelor of Architecture (B. Arch)',
+    institution: 'Royal School of Architecture',
+    license: 'COA License No: CA/2020/125649',
+    projectImages: convertGoogleDriveUrls(rawProjectUrls),
+    bio: 'Experienced architect specializing in innovative design solutions. With a strong foundation from Royal School of Architecture and COA certification, Ragini brings creativity and technical expertise to every project.',
+    email: 'ragini@archyon.com',
+  },
+]
+

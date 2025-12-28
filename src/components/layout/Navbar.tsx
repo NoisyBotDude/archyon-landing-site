@@ -10,6 +10,7 @@ const navLinks = [
   { path: '/services', label: 'Services' },
   { path: '/projects', label: 'Projects' },
   { path: '/about', label: 'About' },
+  { path: '/teams', label: 'Teams' },
   { path: '/contact', label: 'Contact' },
 ]
 
@@ -44,7 +45,9 @@ export const Navbar = () => {
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path
+              const isActive = link.path === '/teams' 
+                ? location.pathname.startsWith('/teams')
+                : location.pathname === link.path
               return (
                 <Link
                   key={link.path}

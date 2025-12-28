@@ -7,6 +7,8 @@ import { Services } from './pages/Services'
 import { Projects } from './pages/Projects'
 import { About } from './pages/About'
 import { Contact } from './pages/Contact'
+import { Teams } from './pages/Teams'
+import { TeamMember } from './pages/TeamMember'
 
 function App() {
   return (
@@ -52,6 +54,22 @@ function App() {
               element={
                 <PageTransition>
                   <Contact />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/teams"
+              element={
+                <PageTransition>
+                  <Teams />
+                </PageTransition>
+              }
+            />
+            <Route
+              path="/teams/:type/:memberId"
+              element={
+                <PageTransition>
+                  <TeamMember />
                 </PageTransition>
               }
             />
