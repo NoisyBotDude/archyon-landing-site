@@ -38,8 +38,13 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-4 max-w-7xl">
         <div className="flex items-center justify-between h-20">
-          <Link to="/" className="text-2xl font-orbitron font-bold text-amber-400">
-            ARCHYON
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/logo.png" 
+              alt="ARCHYON" 
+              className="h-12 md:h-14 w-auto"
+              loading="eager"
+            />
           </Link>
 
           {/* Desktop Nav */}

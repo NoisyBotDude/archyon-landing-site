@@ -12,6 +12,7 @@ export interface ArchitectureTeamMember {
   bio?: string
   email?: string
   linkedin?: string
+  subtitle?: string
 }
 
 // Google Drive URLs from models-list.txt line 7

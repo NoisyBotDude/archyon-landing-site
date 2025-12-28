@@ -85,6 +85,7 @@ export const TeamMember = () => {
                 {member.name}
               </h1>
               <p className="text-amber-400 text-xl md:text-2xl mb-6">{member.title}</p>
+              <p className="text-amber-400 text-xl md:text-2xl mb-6">{member.subtitle}</p>
 
               {/* Architecture-specific info */}
               {isArchitecture && archMember && (
