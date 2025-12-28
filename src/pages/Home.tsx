@@ -41,6 +41,25 @@ const highlights = [
   },
 ]
 
+const images = [
+  {
+    src: '/chamber-1.jpg',
+    alt: 'Image 1',
+  },
+  {
+    src: '/chamber-2.jpg',
+    alt: 'Image 2',
+  },
+  {
+    src: '/chamber-3.jpg',
+    alt: 'Image 3',
+  },
+  {
+    src: '/chamber-4.jpg',
+    alt: 'Image 4',
+  },
+]
+
 const processSteps = [
   { step: '01', title: 'Discover', description: 'Understanding your vision and requirements' },
   { step: '02', title: 'Concept', description: 'Developing initial design concepts' },
@@ -99,8 +118,10 @@ export const Home = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 to-cyan-400/20 blur-3xl rounded-full"></div>
               <div className="relative bg-zinc-900/50 border border-amber-500/30 rounded-lg p-8 backdrop-blur-sm">
                 <div className="grid grid-cols-2 gap-4">
-                  {[1, 2, 3, 4].map((i) => (
-                    <div key={i} className="aspect-square bg-zinc-800/50 border border-zinc-700 rounded"></div>
+                  {images.map((image, index) => (
+                    <div key={index} className="aspect-square bg-zinc-800/50 border border-zinc-700 rounded">
+                      <img src={image.src} alt={image.alt} className="w-full h-full object-cover" />
+                    </div>
                   ))}
                 </div>
               </div>
